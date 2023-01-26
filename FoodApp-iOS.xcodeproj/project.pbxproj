@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B03CB48C2982E00600293B0D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB48B2982E00600293B0D /* MainTabBarViewController.swift */; };
+		B03CB48F2982EAE500293B0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB48E2982EAE500293B0D /* HomeViewController.swift */; };
+		B03CB4912982EAFC00293B0D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB4902982EAFC00293B0D /* SearchViewController.swift */; };
+		B03CB4932982EB6F00293B0D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB4922982EB6F00293B0D /* FavoriteViewController.swift */; };
+		B03CB4952982EB8A00293B0D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB4942982EB8A00293B0D /* ProfileViewController.swift */; };
 		B07D00FD29805CA8002268BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D00FC29805CA8002268BC /* AppDelegate.swift */; };
 		B07D00FF29805CA8002268BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D00FE29805CA8002268BC /* SceneDelegate.swift */; };
 		B07D010129805CA8002268BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D010029805CA8002268BC /* ViewController.swift */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B03CB48B2982E00600293B0D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		B03CB48E2982EAE500293B0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B03CB4902982EAFC00293B0D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B03CB4922982EB6F00293B0D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		B03CB4942982EB8A00293B0D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B07D00F929805CA8002268BC /* FoodApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FoodApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07D00FC29805CA8002268BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07D00FE29805CA8002268BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B03CB48D2982EAB300293B0D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B03CB48E2982EAE500293B0D /* HomeViewController.swift */,
+				B03CB4902982EAFC00293B0D /* SearchViewController.swift */,
+				B03CB4922982EB6F00293B0D /* FavoriteViewController.swift */,
+				B03CB4942982EB8A00293B0D /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B07D00F029805CA8002268BC = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +75,10 @@
 		B07D00FB29805CA8002268BC /* FoodApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B03CB48D2982EAB300293B0D /* Controllers */,
 				B07D00FC29805CA8002268BC /* AppDelegate.swift */,
 				B07D00FE29805CA8002268BC /* SceneDelegate.swift */,
+				B03CB48B2982E00600293B0D /* MainTabBarViewController.swift */,
 				B07D010029805CA8002268BC /* ViewController.swift */,
 				B07D010529805CA9002268BC /* Assets.xcassets */,
 				B07D010729805CA9002268BC /* LaunchScreen.storyboard */,
@@ -134,8 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03CB4912982EAFC00293B0D /* SearchViewController.swift in Sources */,
+				B03CB48F2982EAE500293B0D /* HomeViewController.swift in Sources */,
 				B07D010129805CA8002268BC /* ViewController.swift in Sources */,
+				B03CB4932982EB6F00293B0D /* FavoriteViewController.swift in Sources */,
+				B03CB48C2982E00600293B0D /* MainTabBarViewController.swift in Sources */,
 				B07D00FD29805CA8002268BC /* AppDelegate.swift in Sources */,
+				B03CB4952982EB8A00293B0D /* ProfileViewController.swift in Sources */,
 				B07D00FF29805CA8002268BC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +305,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FoodApp-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -303,6 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FoodApp-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
