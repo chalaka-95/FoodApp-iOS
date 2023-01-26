@@ -11,7 +11,6 @@ class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemMint
         print("MainTabBar is Running....")
         let hvc = UINavigationController(rootViewController: HomeViewController())
         let svc = UINavigationController(rootViewController: SearchViewController())
