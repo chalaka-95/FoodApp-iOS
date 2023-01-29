@@ -9,8 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let sectionTitles: [String] = ["title1","title2","title3","title4"]
-    
+    let sectionTitles: [String] = ["title1","title2","title3","title4"]    
     
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -32,8 +31,10 @@ class HomeViewController: UIViewController {
         //Set headerUIView
         let headerView = HeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height/2))
         homeFeedTable.tableHeaderView = headerView
-            
+        
     }
+    
+
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

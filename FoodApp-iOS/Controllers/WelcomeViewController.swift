@@ -36,10 +36,10 @@ class WelcomeViewController: UIViewController {
     func setupConstraint(){
 
         //Background Gradint
-        bg.topAnchor.constraint(equalTo: view.topAnchor, constant: 20 ).isActive = true
-        bg.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20 ).isActive = true
-        bg.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20 ).isActive = true
-        bg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20 ).isActive = true
+        bg.topAnchor.constraint(equalTo: view.topAnchor, constant: 0 ).isActive = true
+        bg.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0 ).isActive = true
+        bg.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0 ).isActive = true
+        bg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0 ).isActive = true
 
         //title label
         titleLabel.topAnchor.constraint(equalTo: bg.topAnchor, constant: 50).isActive = true

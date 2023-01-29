@@ -13,8 +13,11 @@ class CustomeGradient:UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         if let layer = self.layer as? CAGradientLayer{
-            layer.colors = [UIColor.blue.cgColor, UIColor.gray.cgColor]
-            layer.locations = [0.0,1.2]
+            layer.colors = [UIColor.systemPurple.cgColor, UIColor.systemPink.cgColor]
+            //An optional array of NSNumber objects defining the location of each gradient stop
+            //layer.locations = [0.0,1.2]
+            layer.startPoint = CGPoint(x: 1, y: 0.0)
+            layer.endPoint = CGPoint(x: 0.5, y: 1.0)
         }
     }
     
@@ -23,6 +26,6 @@ class CustomeGradient:UIView {
     }
     
     required init?(coder aDecoder:NSCoder){
-        fatalError("init has not been implement")
+        fatalError("init(coder:) has not been implemented")
     }
 }
