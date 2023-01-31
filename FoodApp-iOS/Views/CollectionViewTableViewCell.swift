@@ -7,9 +7,14 @@
 
 import UIKit
 
+
+
 class CollectionViewTableViewCell: UITableViewCell {
 
-    static let identifire = "CollectionViewTableViewCell"
+    static let identifier = "CollectionViewTableViewCell"
+   
+    
+    public var titles: [TrendingFoodResponse] = [TrendingFoodResponse]()
     
     private let collectionView: UICollectionView = {
         
@@ -17,7 +22,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: 150, height: 200)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
       return collectionView
     }()
     
@@ -37,23 +42,30 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
     }
+    
+    public func config(with titles:[TrendingFoodResponse]) {
+        self.titles = titles
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+        }
+    
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.layer.cornerRadius = 20
-//        if indexPath.row % 2 == 0 {
-//            cell.backgroundColor = .blue
-//        } else {
-//            cell.backgroundColor = .red
-//        }
-        cell.backgroundColor = .red
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        guard let model = titles[indexPath.row].imageUrl else {return UICollectionViewCell()
+        }       
+        cell.config(with: model)
         return cell
     }
     //horizental cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
 
 }

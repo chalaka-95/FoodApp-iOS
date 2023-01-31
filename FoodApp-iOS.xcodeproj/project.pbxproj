@@ -20,6 +20,7 @@
 		B03CB49C2982EB8A00293B0D /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB49B2982EB8A00293B0D /* CollectionViewTableViewCell.swift */; };
 		B04994BC2983BE100094F73E /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04994BB2983BE100094F73E /* APIConnection.swift */; };
 		B04FB0112982FA5F00630D8D /* HeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04FB0102982FA5F00630D8D /* HeaderUIView.swift */; };
+		B05B58B82987B1A700F87A38 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B58B72987B1A700F87A38 /* Food.swift */; };
 		B05C0A9929867072004CAA47 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05C0A9829867072004CAA47 /* HomePageViewController.swift */; };
 		B05C0A9B29868367004CAA47 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05C0A9A29868367004CAA47 /* CustomTextField.swift */; };
 		B067EBAC2987036B00C897FD /* CustomUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067EBAB2987036B00C897FD /* CustomUIStackView.swift */; };
@@ -28,6 +29,10 @@
 		B07D010129805CA8002268BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D010029805CA8002268BC /* ViewController.swift */; };
 		B07D010629805CA9002268BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07D010529805CA9002268BC /* Assets.xcassets */; };
 		B07D010929805CA9002268BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D010729805CA9002268BC /* LaunchScreen.storyboard */; };
+		B07DF92F29887254009274FD /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07DF92E29887254009274FD /* Favorite.swift */; };
+		B09DB248298906ED0010754C /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09DB247298906ED0010754C /* TitleCollectionViewCell.swift */; };
+		B09DB24B29890A050010754C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24A29890A050010754C /* SDWebImage */; };
+		B09DB24D29890A050010754C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24C29890A050010754C /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,7 @@
 		B03CB49B2982EB8A00293B0D /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		B04994BB2983BE100094F73E /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
 		B04FB0102982FA5F00630D8D /* HeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUIView.swift; sourceTree = "<group>"; };
+		B05B58B72987B1A700F87A38 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		B05C0A9829867072004CAA47 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		B05C0A9A29868367004CAA47 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B067EBAB2987036B00C897FD /* CustomUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIStackView.swift; sourceTree = "<group>"; };
@@ -54,6 +60,8 @@
 		B07D010529805CA9002268BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B07D010829805CA9002268BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07D010A29805CA9002268BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B07DF92E29887254009274FD /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		B09DB247298906ED0010754C /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09DB24D29890A050010754C /* SDWebImageMapKit in Frameworks */,
+				B09DB24B29890A050010754C /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +102,7 @@
 			children = (
 				B03CB49B2982EB8A00293B0D /* CollectionViewTableViewCell.swift */,
 				B04FB0102982FA5F00630D8D /* HeaderUIView.swift */,
+				B09DB247298906ED0010754C /* TitleCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +110,8 @@
 		B03CB4982982EB8A00293B0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B05B58B72987B1A700F87A38 /* Food.swift */,
+				B07DF92E29887254009274FD /* Favorite.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +189,10 @@
 			dependencies = (
 			);
 			name = "FoodApp-iOS";
+			packageProductDependencies = (
+				B09DB24A29890A050010754C /* SDWebImage */,
+				B09DB24C29890A050010754C /* SDWebImageMapKit */,
+			);
 			productName = "FoodApp-iOS";
 			productReference = B07D00F929805CA8002268BC /* FoodApp-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -204,6 +221,9 @@
 				Base,
 			);
 			mainGroup = B07D00F029805CA8002268BC;
+			packageReferences = (
+				B09DB24929890A050010754C /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = B07D00FA29805CA8002268BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +255,7 @@
 				B03609C62985ABB600E659CD /* CustomLabel.swift in Sources */,
 				B05C0A9929867072004CAA47 /* HomePageViewController.swift in Sources */,
 				B03CB48F2982EAE500293B0D /* HomeViewController.swift in Sources */,
+				B09DB248298906ED0010754C /* TitleCollectionViewCell.swift in Sources */,
 				B07D010129805CA8002268BC /* ViewController.swift in Sources */,
 				B067EBAC2987036B00C897FD /* CustomUIStackView.swift in Sources */,
 				B03CB4932982EB6F00293B0D /* FavoriteViewController.swift in Sources */,
@@ -245,8 +266,10 @@
 				B03CB49C2982EB8A00293B0D /* CollectionViewTableViewCell.swift in Sources */,
 				B03B0E30298450310031CFAB /* Extensions.swift in Sources */,
 				B07D00FD29805CA8002268BC /* AppDelegate.swift in Sources */,
+				B07DF92F29887254009274FD /* Favorite.swift in Sources */,
 				B03CB4952982EB8A00293B0D /* ProfileViewController.swift in Sources */,
 				B07D00FF29805CA8002268BC /* SceneDelegate.swift in Sources */,
+				B05B58B82987B1A700F87A38 /* Food.swift in Sources */,
 				B04FB0112982FA5F00630D8D /* HeaderUIView.swift in Sources */,
 				B03609C42985A05A00E659CD /* CustomGradient.swift in Sources */,
 			);
@@ -458,6 +481,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B09DB24929890A050010754C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B09DB24A29890A050010754C /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B09DB24929890A050010754C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		B09DB24C29890A050010754C /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B09DB24929890A050010754C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B07D00F129805CA8002268BC /* Project object */;
 }

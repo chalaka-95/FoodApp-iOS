@@ -56,7 +56,7 @@ class HomePageViewController: UIViewController {
         return textField
     }()
     
-    let btn
+    
     
     let viewHolder : UIStackView = {
         let stack = UIStackView()

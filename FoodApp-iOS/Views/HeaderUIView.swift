@@ -20,7 +20,19 @@ class HeaderUIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(homeImageView)
+        addGradient()
     }
+    
+    private func addGradient() {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [
+                UIColor.clear.cgColor,
+                UIColor.systemBackground.cgColor
+            ]
+            gradientLayer.frame = bounds
+            layer.addSublayer(gradientLayer)
+        }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
