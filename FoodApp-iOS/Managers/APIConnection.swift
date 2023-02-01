@@ -9,6 +9,7 @@ import Foundation
 
 struct Constants{
     static let baseURL = "https://coruscating-smakager-171246.netlify.app"
+    static let foodTypeByCuisine = "/api/food/cuisine"
 }
 
 enum APIError: Error {
@@ -18,49 +19,138 @@ enum APIError: Error {
 class APIConnection {
     static let shared = APIConnection()
     
-    func getTrendingFood(completion: @escaping (Result<[TrendingFoodResponse], Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.baseURL)/api/food") else {return}
+    //Get Indian Foods Data
+    func getIndianFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)\(Constants.foodTypeByCuisine)/Indian") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
-
+            
             do{
-                //let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                let results = try JSONDecoder().decode([TrendingFoodResponse].self, from: data)
-                //print(results)
+                let results = try JSONDecoder().decode([FoodResponse].self, from: data)
                 completion(.success(results))
             } catch{
-                //print(error.localizedDescription)
-                print(error)
                 completion(.failure(APIError.failedTogetData))
-                
             }
         }
-        
         task.resume()
     }
     
     
     
-    func getFavoritFood(completion: @escaping (String) -> Void) {
-        guard let url = URL(string: "\(Constants.baseURL)/api/favorite/63c4096c8dafc5f956bf1e92") else {return}
+    //Get Chinese Foods Data
+    func getChineseFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)\(Constants.foodTypeByCuisine)/Chinese") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
-
+            
             do{
-                //let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                let results = try JSONDecoder().decode(FavoriteFood.self, from: data)
-                print(results)
+                let results = try JSONDecoder().decode([FoodResponse].self, from: data)
+                completion(.success(results))
             } catch{
-                //print(error.localizedDescription)
-                print(error)
-                //completion(.failure(APIError.failedTogetData))
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        task.resume()
+    }
+    
+    //Get Italian Foods Data
+    func getItalianFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)\(Constants.foodTypeByCuisine)/Italian") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do{
+                let results = try JSONDecoder().decode([FoodResponse].self, from: data)
+                completion(.success(results))
+            } catch{
+                completion(.failure(APIError.failedTogetData))
             }
         }
         
         task.resume()
     }
+    
+    //Get Thai Foods Data
+    func getThaiFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)\(Constants.foodTypeByCuisine)/Thai") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do{
+                let results = try JSONDecoder().decode([FoodResponse].self, from: data)
+                completion(.success(results))
+            } catch{
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    //Get Japanese Foods Data
+    func getJapaneseFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)\(Constants.foodTypeByCuisine)/Japanese") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do{
+                let results = try JSONDecoder().decode([FoodResponse].self, from: data)
+                completion(.success(results))
+            } catch{
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    //Get American Foods Data
+    func getAmericanFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)\(Constants.foodTypeByCuisine)/American") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do{
+                let results = try JSONDecoder().decode([FoodResponse].self, from: data)
+                completion(.success(results))
+            } catch{
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    //Get Search Data
+    func getSearchFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+            guard let url = URL(string: "\(Constants.baseURL)/api/food") else {return }
+            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                
+                do{
+                    let results = try JSONDecoder().decode([FoodResponse].self, from: data)
+                    completion(.success(results))
+                } catch{
+                    completion(.failure(APIError.failedTogetData))
+                }
+
+            }
+            task.resume()
+        }
+    
 }

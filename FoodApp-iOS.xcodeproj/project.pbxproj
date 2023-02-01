@@ -19,6 +19,8 @@
 		B03CB4952982EB8A00293B0D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB4942982EB8A00293B0D /* ProfileViewController.swift */; };
 		B03CB49C2982EB8A00293B0D /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB49B2982EB8A00293B0D /* CollectionViewTableViewCell.swift */; };
 		B04994BC2983BE100094F73E /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04994BB2983BE100094F73E /* APIConnection.swift */; };
+		B04AB698298B14AB007B8CCC /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AB697298B14AB007B8CCC /* FoodTableViewCell.swift */; };
+		B04AB69A298B1554007B8CCC /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AB699298B1554007B8CCC /* FoodViewModel.swift */; };
 		B04FB0112982FA5F00630D8D /* HeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04FB0102982FA5F00630D8D /* HeaderUIView.swift */; };
 		B05B58B82987B1A700F87A38 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05B58B72987B1A700F87A38 /* Food.swift */; };
 		B05C0A9929867072004CAA47 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05C0A9829867072004CAA47 /* HomePageViewController.swift */; };
@@ -30,7 +32,7 @@
 		B07D010629805CA9002268BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07D010529805CA9002268BC /* Assets.xcassets */; };
 		B07D010929805CA9002268BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D010729805CA9002268BC /* LaunchScreen.storyboard */; };
 		B07DF92F29887254009274FD /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07DF92E29887254009274FD /* Favorite.swift */; };
-		B09DB248298906ED0010754C /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09DB247298906ED0010754C /* TitleCollectionViewCell.swift */; };
+		B09DB248298906ED0010754C /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09DB247298906ED0010754C /* FoodCollectionViewCell.swift */; };
 		B09DB24B29890A050010754C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24A29890A050010754C /* SDWebImage */; };
 		B09DB24D29890A050010754C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24C29890A050010754C /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		B03CB4942982EB8A00293B0D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B03CB49B2982EB8A00293B0D /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		B04994BB2983BE100094F73E /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
+		B04AB697298B14AB007B8CCC /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		B04AB699298B1554007B8CCC /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
 		B04FB0102982FA5F00630D8D /* HeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUIView.swift; sourceTree = "<group>"; };
 		B05B58B72987B1A700F87A38 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		B05C0A9829867072004CAA47 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +65,7 @@
 		B07D010829805CA9002268BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07D010A29805CA9002268BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07DF92E29887254009274FD /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
-		B09DB247298906ED0010754C /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		B09DB247298906ED0010754C /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +84,8 @@
 		B03CB48D2982EAB300293B0D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B03CB48E2982EAE500293B0D /* HomeViewController.swift */,
-				B05C0A9829867072004CAA47 /* HomePageViewController.swift */,
-				B03CB4902982EAFC00293B0D /* SearchViewController.swift */,
-				B03CB4922982EB6F00293B0D /* FavoriteViewController.swift */,
-				B03CB4942982EB8A00293B0D /* ProfileViewController.swift */,
-				B03609BF2985951400E659CD /* WelcomeViewController.swift */,
+				B04AB696298B0E65007B8CCC /* General */,
+				B04AB695298B0E5A007B8CCC /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -93,6 +93,7 @@
 		B03CB4962982EB8A00293B0D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B04AB699298B1554007B8CCC /* FoodViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -102,7 +103,8 @@
 			children = (
 				B03CB49B2982EB8A00293B0D /* CollectionViewTableViewCell.swift */,
 				B04FB0102982FA5F00630D8D /* HeaderUIView.swift */,
-				B09DB247298906ED0010754C /* TitleCollectionViewCell.swift */,
+				B09DB247298906ED0010754C /* FoodCollectionViewCell.swift */,
+				B04AB697298B14AB007B8CCC /* FoodTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +137,26 @@
 				B04994BB2983BE100094F73E /* APIConnection.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		B04AB695298B0E5A007B8CCC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B03CB48E2982EAE500293B0D /* HomeViewController.swift */,
+				B05C0A9829867072004CAA47 /* HomePageViewController.swift */,
+				B03CB4902982EAFC00293B0D /* SearchViewController.swift */,
+				B03CB4922982EB6F00293B0D /* FavoriteViewController.swift */,
+				B03CB4942982EB8A00293B0D /* ProfileViewController.swift */,
+				B03609BF2985951400E659CD /* WelcomeViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B04AB696298B0E65007B8CCC /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		B07D00F029805CA8002268BC = {
@@ -252,14 +274,16 @@
 			files = (
 				B03609CA2985CB1500E659CD /* CustomHeaderView.swift in Sources */,
 				B03CB4912982EAFC00293B0D /* SearchViewController.swift in Sources */,
+				B04AB69A298B1554007B8CCC /* FoodViewModel.swift in Sources */,
 				B03609C62985ABB600E659CD /* CustomLabel.swift in Sources */,
 				B05C0A9929867072004CAA47 /* HomePageViewController.swift in Sources */,
 				B03CB48F2982EAE500293B0D /* HomeViewController.swift in Sources */,
-				B09DB248298906ED0010754C /* TitleCollectionViewCell.swift in Sources */,
+				B09DB248298906ED0010754C /* FoodCollectionViewCell.swift in Sources */,
 				B07D010129805CA8002268BC /* ViewController.swift in Sources */,
 				B067EBAC2987036B00C897FD /* CustomUIStackView.swift in Sources */,
 				B03CB4932982EB6F00293B0D /* FavoriteViewController.swift in Sources */,
 				B03CB48C2982E00600293B0D /* MainTabBarViewController.swift in Sources */,
+				B04AB698298B14AB007B8CCC /* FoodTableViewCell.swift in Sources */,
 				B05C0A9B29868367004CAA47 /* CustomTextField.swift in Sources */,
 				B04994BC2983BE100094F73E /* APIConnection.swift in Sources */,
 				B03609C02985951400E659CD /* WelcomeViewController.swift in Sources */,

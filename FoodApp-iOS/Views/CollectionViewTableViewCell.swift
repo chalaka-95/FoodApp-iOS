@@ -12,9 +12,8 @@ import UIKit
 class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
-   
     
-    public var titles: [TrendingFoodResponse] = [TrendingFoodResponse]()
+    public var foodData: [FoodResponse] = [FoodResponse]()
     
     private let collectionView: UICollectionView = {
         
@@ -22,7 +21,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: 150, height: 200)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
+        collectionView.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: FoodCollectionViewCell.identifier)
       return collectionView
     }()
     
@@ -43,29 +42,29 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds
     }
     
-    public func config(with titles:[TrendingFoodResponse]) {
-        self.titles = titles
+    public func config(with foodData:[FoodResponse]) {
+        self.foodData = foodData
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
         }
-        }
+    }
     
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCollectionViewCell.identifier, for: indexPath) as? FoodCollectionViewCell else {
             return UICollectionViewCell()
         }
-        guard let model = titles[indexPath.row].imageUrl else {return UICollectionViewCell()
+        guard let model = foodData[indexPath.row].imageUrl else {return UICollectionViewCell()
         }       
         cell.config(with: model)
         return cell
     }
     //horizental cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titles.count
+        return foodData.count
     }
 
 }

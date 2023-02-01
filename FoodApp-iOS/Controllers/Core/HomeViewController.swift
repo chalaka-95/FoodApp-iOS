@@ -9,15 +9,19 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Indian"]
+    let sectionTitles: [String] = ["Indian", "Chinese", "Thai",  "Italian", "Japanese", "American"]
     enum Sections: Int {
-        case TrendingIndianFood = 0
+        case IndianFoods = 0
+        case ChineseFoods = 1
+        case ThaiFoods = 2
+        case ItalianFoods = 3
+        case JapaneseFoods = 4
+        case AmericanFoods = 5
     }
     
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
-        
         return table
     }()
     
@@ -25,28 +29,20 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
+        
         //setdata //connect with extension UITableViewDelegate, UITableViewDataSource classes
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
-        
         ConfigureNavBar()
-        //getTrendingFood()
         
-        
-        
-        //getFavoriteFood()
         //Set headerUIView
         let headerView = HeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height/2))
         homeFeedTable.tableHeaderView = headerView
-        
     }
-    
-    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
-        
     }
     
     private func ConfigureNavBar(){
@@ -69,14 +65,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
-//            return UITableViewCell()
-//        }
-//        return cell
-//
-//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -84,36 +72,75 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        //cell.delegate = self
-
         switch indexPath.section {
-        case Sections.TrendingIndianFood.rawValue:
-            APIConnection.shared.getTrendingFood { TrendingFoodResponse in
+            
+        case Sections.IndianFoods.rawValue:
+            APIConnection.shared.getIndianFood { TrendingFoodResponse in
                 switch TrendingFoodResponse {
 
-                case .success(let titles):
-                    cell.config(with: titles)
-//                    print("su////////////-----------------")
-                    //print(titles)
-//                    print("su////////////-----------------")
+                case .success(let foods):
+                    cell.config(with: foods)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
+            
+        case Sections.ChineseFoods.rawValue:
+                    APIConnection.shared.getChineseFood { result in
+                        switch result {
+                        case .success(let foods):
+                            cell.config(with: foods)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+            
+        case Sections.ThaiFoods.rawValue:
+                    APIConnection.shared.getThaiFood { result in
+                        switch result {
+                        case .success(let foods):
+                            cell.config(with: foods)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+            
+        case Sections.ItalianFoods.rawValue:
+                    APIConnection.shared.getItalianFood { result in
+                        switch result {
+                        case .success(let foods):
+                            cell.config(with: foods)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+            
+        case Sections.JapaneseFoods.rawValue:
+                    APIConnection.shared.getJapaneseFood { result in
+                        switch result {
+                        case .success(let foods):
+                            cell.config(with: foods)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+            
+        case Sections.AmericanFoods.rawValue:
+                    APIConnection.shared.getAmericanFood { result in
+                        switch result {
+                        case .success(let foods):
+                            cell.config(with: foods)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
         default:
             return UITableViewCell()
-
         }
-
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //        if indexPath.row == 0 {
-        //               return 200 // Short row
-        //           } else {
-        //               return 50 // Tall row
-        //           }
         return 200
     }
     
@@ -122,11 +149,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
-        header.textLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .black
         header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
-        
     }
     
     //Table title headers
@@ -141,16 +167,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
-    
-//    private func getTrendingFood(){
-//        APIConnection.shared.getTrendingFood{ _ in
-//
-//        }
-//    }
-//
-//    private func getFavoriteFood(){
-//        APIConnection.shared.getFavoritFood{ _ in
-//
-//        }
-//    }
 }

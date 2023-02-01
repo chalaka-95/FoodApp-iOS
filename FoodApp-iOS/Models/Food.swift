@@ -31,7 +31,7 @@
 
 import Foundation
 
-struct TrendingFoodResponse: Codable {
+struct FoodResponse: Codable {
 //    let food:[Foods]
 //}
 //struct Foods: Codable {

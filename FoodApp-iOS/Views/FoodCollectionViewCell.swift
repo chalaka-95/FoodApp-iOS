@@ -8,8 +8,8 @@
 import UIKit
 import SDWebImage
 
-class TitleCollectionViewCell: UICollectionViewCell {
-    static let identifier = "TitleCollectionViewCell"
+class FoodCollectionViewCell: UICollectionViewCell {
+    static let identifier = "FoodCollectionViewCell"
     private let foodImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
