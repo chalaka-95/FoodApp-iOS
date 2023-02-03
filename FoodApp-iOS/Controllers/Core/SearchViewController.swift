@@ -18,6 +18,13 @@ class SearchViewController: UIViewController {
         return table
     }()
 
+    private let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchFoodResultsViewController())
+        controller.searchBar.placeholder = "Search food name you like"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -25,12 +32,14 @@ class SearchViewController: UIViewController {
         title = "Search Food"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-        
+        navigationController?.navigationBar.tintColor = .white
         view.addSubview(searchDataTable)
         searchDataTable.delegate = self
         searchDataTable.dataSource = self
-        
-        fetchSearchData()
+        navigationItem.searchController = searchController
+                fetchSearchData()
+        searchController.searchResultsUpdater = self
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,7 +86,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     private func fetchSearchData(){
         APIConnection.shared.getSearchFood { [weak self] result in
-            switch result{
+            switch result {
             case.success(let foods):
                 self?.foodData = foods
                 DispatchQueue.main.async {
@@ -89,4 +98,34 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+}
+
+
+extension SearchViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        
+        guard let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 5,
+              let resultsController = searchController.searchResultsController as? SearchFoodResultsViewController else {
+                  return                  
+              }
+        print("This is the query \(query)")
+        
+        APIConnection.shared.search(with: query) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let foods):
+                    resultsController.foodData = foods
+                    resultsController.searchFoodResultsCollectionView.reloadData()
+                    print(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    //print(error)
+                }
+            }
+        }
+    }
 }

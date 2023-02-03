@@ -134,7 +134,7 @@ class APIConnection {
     }
     
     
-    //Get Search Data
+    //Load all food Data
     func getSearchFood(completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
             guard let url = URL(string: "\(Constants.baseURL)/api/food") else {return }
             let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
@@ -153,4 +153,74 @@ class APIConnection {
             task.resume()
         }
     
+    //Search Food
+    func search(with query: String, completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        print("This is =\(query)")
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let url = URL(string: "\(Constants.baseURL)/api/food/\(query)") else { return }
+        print("\(url)")
+
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+
+            do{
+                let results = try JSONDecoder().decode(FoodResponse.self, from: data)
+                //let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(results)
+                completion(.success([results]))
+            } catch{
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+
+        task.resume()
+    }
+    
+//    func search(with query: String, completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+//            guard let url = URL(string: "\(Constants.baseURL)/api/food/\(query)") else {return }
+//        print("This is the url \(url)")
+//            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+//                guard let data = data, error == nil else {
+//                    return
+//                }
+//
+//                do{
+//                    let results = try JSONDecoder().decode(FoodResponse.self, from: data)
+//                    completion(.success([results]))
+//                } catch{
+//                    completion(.failure(APIError.failedTogetData))
+//                }
+//
+//            }
+//            task.resume()
+//        }
+    
+    func getSelectedFood(with query: String, completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        
+
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+        guard let url = URL(string: "\(Constants.baseURL)/api/food/\(query)") else {return}
+        print("This is URL \(url)")
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                //let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                let results = try JSONDecoder().decode(FoodResponse.self, from: data)
+                print("This is Result \(results)")
+                completion(.success([results]))
+                
+
+            } catch {
+                completion(.failure(error))
+                //print(error.localizedDescription)
+            }
+
+        }
+        task.resume()
+    }
 }

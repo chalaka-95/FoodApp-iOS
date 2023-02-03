@@ -11,13 +11,13 @@ class FoodTableViewCell: UITableViewCell {
     
     static let identifier = "FoodTableViewCell"
     
-    private let titleLabel: UILabel = {
+    private let foodTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let titlesPosterUIImageView: UIImageView = {
+    private let foodImageUIImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,28 +27,28 @@ class FoodTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(titlesPosterUIImageView)
-        contentView.addSubview(titleLabel)        
+        contentView.addSubview(foodImageUIImageView)
+        contentView.addSubview(foodTitleLabel)
         applyConstraints()
         
     }
     
     
     private func applyConstraints() {
-        let titlesPosterUIImageViewConstraints = [
-            titlesPosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titlesPosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titlesPosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            titlesPosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
+        let foodImageUIImageViewConstraints = [
+            foodImageUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            foodImageUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            foodImageUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            foodImageUIImageView.widthAnchor.constraint(equalToConstant: 100)
         ]
         
-        let titleLabelConstraints = [
-            titleLabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 20),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        let foodTitleLabelConstraints = [
+            foodTitleLabel.leadingAnchor.constraint(equalTo: foodImageUIImageView.trailingAnchor, constant: 20),
+            foodTitleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ]
         
-        NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)
-        NSLayoutConstraint.activate(titleLabelConstraints)
+        NSLayoutConstraint.activate(foodImageUIImageViewConstraints)
+        NSLayoutConstraint.activate(foodTitleLabelConstraints)
     }
     
     
@@ -58,8 +58,8 @@ class FoodTableViewCell: UITableViewCell {
         guard let url = URL(string: "\(model.imageURL)") else {
             return
         }
-        titlesPosterUIImageView.sd_setImage(with: url, completed: nil)
-        titleLabel.text = model.foodName
+        foodImageUIImageView.sd_setImage(with: url, completed: nil)
+        foodTitleLabel.text = model.foodName
     }
     
     required init?(coder: NSCoder) {

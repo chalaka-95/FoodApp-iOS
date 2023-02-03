@@ -11,6 +11,7 @@
 		B03609C42985A05A00E659CD /* CustomGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03609C32985A05A00E659CD /* CustomGradient.swift */; };
 		B03609C62985ABB600E659CD /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03609C52985ABB600E659CD /* CustomLabel.swift */; };
 		B03609CA2985CB1500E659CD /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03609C92985CB1500E659CD /* CustomHeaderView.swift */; };
+		B039D149298BD4B700B0193E /* SearchFoodResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039D148298BD4B700B0193E /* SearchFoodResultsViewController.swift */; };
 		B03B0E30298450310031CFAB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B0E2F298450310031CFAB /* Extensions.swift */; };
 		B03CB48C2982E00600293B0D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB48B2982E00600293B0D /* MainTabBarViewController.swift */; };
 		B03CB48F2982EAE500293B0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CB48E2982EAE500293B0D /* HomeViewController.swift */; };
@@ -32,9 +33,11 @@
 		B07D010629805CA9002268BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07D010529805CA9002268BC /* Assets.xcassets */; };
 		B07D010929805CA9002268BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D010729805CA9002268BC /* LaunchScreen.storyboard */; };
 		B07DF92F29887254009274FD /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07DF92E29887254009274FD /* Favorite.swift */; };
+		B0936405298D006300005FE8 /* FoodDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0936404298D006300005FE8 /* FoodDetailsViewModel.swift */; };
 		B09DB248298906ED0010754C /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09DB247298906ED0010754C /* FoodCollectionViewCell.swift */; };
 		B09DB24B29890A050010754C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24A29890A050010754C /* SDWebImage */; };
 		B09DB24D29890A050010754C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24C29890A050010754C /* SDWebImageMapKit */; };
+		B0B4E7DD298C609A009EAB35 /* FoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B4E7DC298C609A009EAB35 /* FoodDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,7 @@
 		B03609C32985A05A00E659CD /* CustomGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradient.swift; sourceTree = "<group>"; };
 		B03609C52985ABB600E659CD /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B03609C92985CB1500E659CD /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		B039D148298BD4B700B0193E /* SearchFoodResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodResultsViewController.swift; sourceTree = "<group>"; };
 		B03B0E2F298450310031CFAB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B03CB48B2982E00600293B0D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B03CB48E2982EAE500293B0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +69,9 @@
 		B07D010829805CA9002268BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07D010A29805CA9002268BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07DF92E29887254009274FD /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		B0936404298D006300005FE8 /* FoodDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModel.swift; sourceTree = "<group>"; };
 		B09DB247298906ED0010754C /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		B0B4E7DC298C609A009EAB35 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B04AB699298B1554007B8CCC /* FoodViewModel.swift */,
+				B0936404298D006300005FE8 /* FoodDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -155,6 +162,8 @@
 		B04AB696298B0E65007B8CCC /* General */ = {
 			isa = PBXGroup;
 			children = (
+				B039D148298BD4B700B0193E /* SearchFoodResultsViewController.swift */,
+				B0B4E7DC298C609A009EAB35 /* FoodDetailsViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 				B03609CA2985CB1500E659CD /* CustomHeaderView.swift in Sources */,
 				B03CB4912982EAFC00293B0D /* SearchViewController.swift in Sources */,
 				B04AB69A298B1554007B8CCC /* FoodViewModel.swift in Sources */,
+				B039D149298BD4B700B0193E /* SearchFoodResultsViewController.swift in Sources */,
 				B03609C62985ABB600E659CD /* CustomLabel.swift in Sources */,
 				B05C0A9929867072004CAA47 /* HomePageViewController.swift in Sources */,
 				B03CB48F2982EAE500293B0D /* HomeViewController.swift in Sources */,
@@ -284,6 +294,7 @@
 				B03CB4932982EB6F00293B0D /* FavoriteViewController.swift in Sources */,
 				B03CB48C2982E00600293B0D /* MainTabBarViewController.swift in Sources */,
 				B04AB698298B14AB007B8CCC /* FoodTableViewCell.swift in Sources */,
+				B0B4E7DD298C609A009EAB35 /* FoodDetailsViewController.swift in Sources */,
 				B05C0A9B29868367004CAA47 /* CustomTextField.swift in Sources */,
 				B04994BC2983BE100094F73E /* APIConnection.swift in Sources */,
 				B03609C02985951400E659CD /* WelcomeViewController.swift in Sources */,
@@ -293,6 +304,7 @@
 				B07DF92F29887254009274FD /* Favorite.swift in Sources */,
 				B03CB4952982EB8A00293B0D /* ProfileViewController.swift in Sources */,
 				B07D00FF29805CA8002268BC /* SceneDelegate.swift in Sources */,
+				B0936405298D006300005FE8 /* FoodDetailsViewModel.swift in Sources */,
 				B05B58B82987B1A700F87A38 /* Food.swift in Sources */,
 				B04FB0112982FA5F00630D8D /* HeaderUIView.swift in Sources */,
 				B03609C42985A05A00E659CD /* CustomGradient.swift in Sources */,
