@@ -7,11 +7,13 @@
 
 import UIKit
 
+
+
 class SearchViewController: UIViewController {
     
     //let header = customHeaderView()
     private var foodData: [FoodResponse] = [FoodResponse]()
-
+    
     private let searchDataTable: UITableView = {
         let table = UITableView()
         table.register(FoodTableViewCell.self, forCellReuseIdentifier: FoodTableViewCell.identifier)
@@ -97,6 +99,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
+    
+    
+    //
+
+    //
     
 }
 

@@ -223,4 +223,29 @@ class APIConnection {
         }
         task.resume()
     }
+    
+    //Search Food
+    func searchFavFoodsByUserId(with query: String, completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
+        print("This is =\(query)")
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let url = URL(string: "\(Constants.baseURL)/api/favorite/\(query)") else { return }
+        print("\(url)")
+
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+
+            do{
+                let results = try JSONDecoder().decode([FoodResponse].self, from: data)
+                //let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(results)
+                completion(.success(results))
+            } catch{
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+
+        task.resume()
+    }    
 }

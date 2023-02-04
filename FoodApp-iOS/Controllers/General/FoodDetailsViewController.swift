@@ -10,118 +10,119 @@ import UIKit
 
 class FoodDetailsViewController: UIViewController {
     
-    private let foodImageView : UIImageView = {
+    let foodImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .bold)
         label.numberOfLines = 0
-        label.text = "Rice"
         return label
     }()
     
-    private let cuisineLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.text = "This is a rice halo"
-        return label
-    }()
-    
-    private let nutritionLabel: UILabel = {
+    let cuisinTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.text = "This is a rice halo"
+        label.text = "Cuisine"
         return label
     }()
     
-    private let caloriesLabel: UILabel = {
+    let cuisineLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.text = "This is a rice halo"
         return label
     }()
     
-    private let carbohydratesLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.text = "This is a rice halo"
-        return label
-    }()
-    
-    private let fatLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.text = "This is a rice halo"
-        return label
-    }()
-    
-    private let proteinLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.text = "This is a rice halo"
-        return label
-    }()
-    
-    private let sugarLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.text = "This is a rice halo"
-        return label
-    }()
-    
-    private let ingrediantTitleLabel: UILabel = {
+    let nutritionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.text = "This is a rice halo"
+        label.text = "Nutrition"
         return label
     }()
     
-    private let descriptionTitleLabel: UILabel = {
+    let caloriesLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let carbohydratesLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let fatLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let proteinLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let sugarLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.text = ""
+        return label
+    }()
+    
+     let ingrediantTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.text = "This is a rice halo"
+        label.text = "Ingrediants"
         return label
     }()
     
-    private let ingrediantLabel: UILabel = {
+    let descriptionTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.text = "Description"
+        return label
+    }()
+    
+    let ingrediantLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0;
+        return label
+    }()
+    
+    let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.text = "This is a rice halo"
-        return label
-    }()
-    
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.text = "This is a rice halo"
         return label
     }()
     
@@ -134,97 +135,141 @@ class FoodDetailsViewController: UIViewController {
         return stack
     }()
     
-    private let favoriteButton: UIButton = {
+    let favouriteButton: UIButton = {
         let button = UIButton()
+        let icon = UIImage(named: "favIcon")?.withTintColor(.systemBackground)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
-        button.setTitle("Favorite", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8
-        button.layer.masksToBounds = true
-        
+        button.setImage(icon, for: .normal)
         return button
     }()
-    
-    let scrollView = UIScrollView()
-    let contentView = UIView()
-    
-    func setupScrollView(){
-            scrollView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(scrollView)
-            scrollView.addSubview(contentView)
-            
-            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupUI()
-        setupScrollView()
     }
-    
+
     func setupUI(){
         view.addSubview(foodImageView)
+        view.addSubview(favouriteButton)
         view.addSubview(titleLabel)
-        viewHolder.insertArrangedSubview(cuisineLabel, at: 0)
-        viewHolder.insertArrangedSubview(nutritionLabel, at: 1)
-        viewHolder.insertArrangedSubview(caloriesLabel, at: 2)
-        viewHolder.insertArrangedSubview(carbohydratesLabel, at: 3)
-        viewHolder.insertArrangedSubview(fatLabel, at: 4)
-        viewHolder.insertArrangedSubview(proteinLabel, at: 5)
-        viewHolder.insertArrangedSubview(sugarLabel, at: 6)
-        viewHolder.insertArrangedSubview(ingrediantTitleLabel, at: 7)
-        viewHolder.insertArrangedSubview(ingrediantLabel, at: 8)
-        viewHolder.insertArrangedSubview(descriptionTitleLabel, at: 9)
-        viewHolder.insertArrangedSubview(descriptionLabel, at: 10)
-        view.addSubview(viewHolder)
-        view.addSubview(favoriteButton)
+        view.addSubview(cuisinTitleLabel)
+        view.addSubview(cuisineLabel)
+        view.addSubview(nutritionLabel)
+        view.addSubview(caloriesLabel)
+        view.addSubview(carbohydratesLabel)
+        view.addSubview(proteinLabel)
+        view.addSubview(sugarLabel)
+        view.addSubview(fatLabel)
+        view.addSubview(ingrediantTitleLabel)
+        view.addSubview(ingrediantLabel)
+        view.addSubview(descriptionTitleLabel)
+        view.addSubview(descriptionLabel)
         setupConstraints()
     }
     
-
-    
     func setupConstraints() {
+        
         let imageViewConstraints = [
-            foodImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            foodImageView.topAnchor.constraint(equalTo: view.topAnchor),
             foodImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             foodImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            foodImageView.heightAnchor.constraint(equalToConstant: 300)
-        ]
-//
-        let titleLabelConstraints = [
-            titleLabel.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        ]
-        
-        let viewHolderConstraints = [
-            viewHolder.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
-            viewHolder.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            viewHolder.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            foodImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            foodImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/3)
         ]
         
         let favoriteButtonConstraints = [
-            favoriteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            favoriteButton.topAnchor.constraint(equalTo: viewHolder.bottomAnchor, constant: 25),
-            favoriteButton.widthAnchor.constraint(equalToConstant: 140),
-            favoriteButton.heightAnchor.constraint(equalToConstant: 40)
+            favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            favouriteButton.topAnchor.constraint(equalTo: view.topAnchor),
+            favouriteButton.widthAnchor.constraint(equalToConstant: 30),
+            favouriteButton.heightAnchor.constraint(equalToConstant: 30)
         ]
         
+        let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
+        ]
+        
+        let cuisineTitleLableConstraints = [
+            cuisinTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            cuisinTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let cuisineLabelConstraints = [
+            cuisineLabel.topAnchor.constraint(equalTo: cuisinTitleLabel.bottomAnchor, constant: 20),
+            cuisineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let nutritionLabelConstraints = [
+            nutritionLabel.topAnchor.constraint(equalTo: cuisineLabel.bottomAnchor, constant: 30),
+            nutritionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let caloriesLabelConstraints = [
+            caloriesLabel.topAnchor.constraint(equalTo: nutritionLabel.bottomAnchor, constant: 20),
+            caloriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let carbohydratesLabelConstraints = [
+            carbohydratesLabel.topAnchor.constraint(equalTo: caloriesLabel.bottomAnchor, constant: 20),
+            carbohydratesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let protineLabelConstraints = [
+            proteinLabel.topAnchor.constraint(equalTo: carbohydratesLabel.bottomAnchor, constant: 20),
+            proteinLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let sugarLabelConstraints = [
+            sugarLabel.topAnchor.constraint(equalTo: proteinLabel.bottomAnchor, constant: 20),
+            sugarLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let fatLabelConstraints = [
+            fatLabel.topAnchor.constraint(equalTo: sugarLabel.bottomAnchor, constant: 20),
+            fatLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let ingrediantTitleLabelConstraints = [
+            ingrediantTitleLabel.topAnchor.constraint(equalTo: fatLabel.bottomAnchor, constant: 30),
+            ingrediantTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let ingrediantLabelConstraints = [
+            ingrediantLabel.topAnchor.constraint(equalTo: ingrediantTitleLabel.bottomAnchor, constant: 20),
+            ingrediantLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            ingrediantLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
+        ]
+        
+        let descriptionTitleLabelConstraints = [
+            descriptionTitleLabel.topAnchor.constraint(equalTo: ingrediantLabel.bottomAnchor, constant: 30),
+            descriptionTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        
+        let descriptionLabelConstraints = [
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: 20),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+        ]
+
+        
         NSLayoutConstraint.activate(imageViewConstraints)
-        NSLayoutConstraint.activate(titleLabelConstraints)
-        NSLayoutConstraint.activate(viewHolderConstraints)
         NSLayoutConstraint.activate(favoriteButtonConstraints)
+        NSLayoutConstraint.activate(titleLabelConstraints)
+        NSLayoutConstraint.activate(cuisineTitleLableConstraints)
+        NSLayoutConstraint.activate(cuisineLabelConstraints)
+        NSLayoutConstraint.activate(nutritionLabelConstraints)
+        NSLayoutConstraint.activate(caloriesLabelConstraints)
+        NSLayoutConstraint.activate(carbohydratesLabelConstraints)
+        NSLayoutConstraint.activate(protineLabelConstraints)
+        NSLayoutConstraint.activate(fatLabelConstraints)
+        NSLayoutConstraint.activate(sugarLabelConstraints)
+        NSLayoutConstraint.activate(ingrediantTitleLabelConstraints)
+        NSLayoutConstraint.activate(ingrediantLabelConstraints)
+        NSLayoutConstraint.activate(descriptionTitleLabelConstraints)
+        NSLayoutConstraint.activate(descriptionLabelConstraints)
         
     }
     
@@ -232,15 +277,12 @@ class FoodDetailsViewController: UIViewController {
     public func config(with model: FoodDetailsViewModel) {
         titleLabel.text = model.foodName
         cuisineLabel.text = "Cuisine Type: \(model.cuisine)"
-        nutritionLabel.text = "Nutrition Level"
         caloriesLabel.text = "Calories: \(model.calories)"
         carbohydratesLabel.text = "Carbohydrates: \(model.carbohydrates)"
         fatLabel.text = "Fat: \(model.fat)"
         proteinLabel.text = "Protein: \(model.protein)"
         sugarLabel.text = "Sugar: \(model.sugar)"
-        ingrediantTitleLabel.text = "Ingrediants"
         ingrediantLabel.text = model.ingredient
-        descriptionTitleLabel.text = "Description"
         descriptionLabel.text = model.description
         guard let url = URL(string: model.imageURL) else { return }
         foodImageView.sd_setImage(with: url, completed: nil)
@@ -248,3 +290,4 @@ class FoodDetailsViewController: UIViewController {
     
 
 }
+

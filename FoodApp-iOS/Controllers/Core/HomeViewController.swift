@@ -178,7 +178,7 @@ extension HomeViewController: CollectionViewTableViewCellDelegate {
             let vc = FoodDetailsViewController()
             vc.config(with: viewModel)
             self?.navigationController?.pushViewController(vc, animated: true)
-            self?.tabBarController?.tabBar.isHidden = true
+            //self?.tabBarController?.tabBar.isHidden = true
         }
     }
 }

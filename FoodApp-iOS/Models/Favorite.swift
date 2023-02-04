@@ -8,11 +8,15 @@
 import Foundation
 
 struct FavoriteFoodResponse: Codable {
-    let results:[FavoriteFood]
-}
-struct FavoriteFood: Codable {
-    let id, foodID, name, cuisine: String?
-    let description, ingredient: String?
+    let id: String?
+    let foodID: String?
     let imageURL: String?
-    let isActive: Bool?
+    
+    enum CodingKeys: String, CodingKey, Codable {
+        case id
+        case foodID
+        case imageURL
+    }
 }
+
+

@@ -19,7 +19,7 @@ class SearchFoodResultsViewController: UIViewController {
     
     public let searchFoodResultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: 200)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 10, height: 200)
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(FoodCollectionViewCell.self, forCellWithReuseIdentifier: FoodCollectionViewCell.identifier)
