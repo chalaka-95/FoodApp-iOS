@@ -13,6 +13,7 @@ class FoodTableViewCell: UITableViewCell {
     
     private let foodTitleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -20,6 +21,8 @@ class FoodTableViewCell: UITableViewCell {
     private let foodImageUIImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         return imageView
@@ -45,6 +48,7 @@ class FoodTableViewCell: UITableViewCell {
         let foodTitleLabelConstraints = [
             foodTitleLabel.leadingAnchor.constraint(equalTo: foodImageUIImageView.trailingAnchor, constant: 20),
             foodTitleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            foodTitleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9)
         ]
         
         NSLayoutConstraint.activate(foodImageUIImageViewConstraints)

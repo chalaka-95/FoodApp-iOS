@@ -90,7 +90,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 guard let strongSelf = self else {
                     return
                 }
-                let viewModel = FoodDetailsViewModel(foodId: food?.foodId ?? "", foodName: food?.name ?? "", imageURL: food?.imageUrl ?? "", cuisine: food?.cuisine ?? "", description: food?.description ?? "", calories: food?.calories ?? "", carbohydrates: food?.carbohydrates ?? "", fat: food?.fat ?? "", protein: food?.protein ?? "", sugar: food?.sugar ?? "", ingredient: food?.ingredient ?? "", imageUrl: food?.imageUrl ?? "")
+                let viewModel = FoodDetailsViewModel(foodId: food?.foodId ?? "", foodName: food?.name ?? "", cuisine: food?.cuisine ?? "", description: food?.description ?? "", calories: food?.calories ?? "", carbohydrates: food?.carbohydrates ?? "", fat: food?.fat ?? "", protein: food?.protein ?? "", sugar: food?.sugar ?? "", ingredient: food?.ingredient ?? "", imageUrl: food?.imageUrl ?? "")
                 self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
                 //navigationController.pushViewController(FoodDetailsViewController(), animated: true)
 

@@ -35,6 +35,7 @@
 		B07D010929805CA9002268BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07D010729805CA9002268BC /* LaunchScreen.storyboard */; };
 		B07DF92F29887254009274FD /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07DF92E29887254009274FD /* Favorite.swift */; };
 		B0936405298D006300005FE8 /* FoodDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0936404298D006300005FE8 /* FoodDetailsViewModel.swift */; };
+		B09A1815298F724B00D8B656 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09A1814298F724B00D8B656 /* SignUpViewController.swift */; };
 		B09DB248298906ED0010754C /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09DB247298906ED0010754C /* FoodCollectionViewCell.swift */; };
 		B09DB24B29890A050010754C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24A29890A050010754C /* SDWebImage */; };
 		B09DB24D29890A050010754C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B09DB24C29890A050010754C /* SDWebImageMapKit */; };
@@ -72,6 +73,7 @@
 		B07D010A29805CA9002268BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07DF92E29887254009274FD /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		B0936404298D006300005FE8 /* FoodDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModel.swift; sourceTree = "<group>"; };
+		B09A1814298F724B00D8B656 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B09DB247298906ED0010754C /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		B0B4E7DC298C609A009EAB35 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				B0351964298EF56D00F7D9EF /* SignInViewController.swift */,
+				B09A1814298F724B00D8B656 /* SignUpViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				B04AB698298B14AB007B8CCC /* FoodTableViewCell.swift in Sources */,
 				B0B4E7DD298C609A009EAB35 /* FoodDetailsViewController.swift in Sources */,
 				B05C0A9B29868367004CAA47 /* CustomTextField.swift in Sources */,
+				B09A1815298F724B00D8B656 /* SignUpViewController.swift in Sources */,
 				B04994BC2983BE100094F73E /* APIConnection.swift in Sources */,
 				B03609C02985951400E659CD /* WelcomeViewController.swift in Sources */,
 				B03CB49C2982EB8A00293B0D /* CollectionViewTableViewCell.swift in Sources */,

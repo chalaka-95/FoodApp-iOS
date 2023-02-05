@@ -139,7 +139,7 @@ class FoodDetailsViewController: UIViewController {
     
     let favouriteButton: UIButton = {
         let button = UIButton()
-        let icon = UIImage(named: "favIcon")?.withTintColor(.systemBackground)
+        let icon = UIImage(named: "favIcon")?.withTintColor(.red)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(icon, for: .normal)
         button.addTarget(self, action: #selector(addToFavoriteList), for: .touchUpInside)
@@ -182,15 +182,18 @@ class FoodDetailsViewController: UIViewController {
         ]
         
         let favoriteButtonConstraints = [
-            favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            favouriteButton.topAnchor.constraint(equalTo: view.topAnchor),
+            favouriteButton.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20),
+            favouriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            
+            //favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            //favouriteButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             favouriteButton.widthAnchor.constraint(equalToConstant: 30),
             favouriteButton.heightAnchor.constraint(equalToConstant: 30)
         ]
         
         let titleLabelConstraints = [
             titleLabel.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
             titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
         ]
         
@@ -326,7 +329,8 @@ class FoodDetailsViewController: UIViewController {
         sugarLabel.text = "Sugar: \(model.sugar)"
         ingrediantLabel.text = model.ingredient
         descriptionLabel.text = model.description
-        guard let url = URL(string: model.imageURL) else { return }
+        //guard let url = URL(string: model.imageURL) else { return }
+        guard let url = URL(string: model.imageUrl) else { return }
         foodImageView.sd_setImage(with: url, completed: nil)
     }
     

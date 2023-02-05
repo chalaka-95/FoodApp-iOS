@@ -10,7 +10,7 @@ import Foundation
 struct FoodDetailsViewModel {
     let foodId: String
     let foodName: String
-    let imageURL: String
+    //let imageURL: String
     let cuisine: String
     let description: String
     let calories: String

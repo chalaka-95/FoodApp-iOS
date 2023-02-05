@@ -179,25 +179,6 @@ class APIConnection {
         task.resume()
     }
     
-//    func search(with query: String, completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
-//            guard let url = URL(string: "\(Constants.baseURL)/api/food/\(query)") else {return }
-//        print("This is the url \(url)")
-//            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-//                guard let data = data, error == nil else {
-//                    return
-//                }
-//
-//                do{
-//                    let results = try JSONDecoder().decode(FoodResponse.self, from: data)
-//                    completion(.success([results]))
-//                } catch{
-//                    completion(.failure(APIError.failedTogetData))
-//                }
-//
-//            }
-//            task.resume()
-//        }
-    
     func getSelectedFood(with query: String, completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
 
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
@@ -285,6 +266,47 @@ class APIConnection {
                 catch {print("error")}
                 return
             }
+        }
+        task.resume()
+    }
+    
+    
+    // Signup
+    static func signUp(fname: String, lname:String, email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        // Build the API request
+        let url = URL(string: "\(Constants.baseURL)/api/user")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let parameters = ["firstName": fname, "lastName": lname, "email": email, "password": password]
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+        
+        // Send the request
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    if statusCode >= 200 && statusCode < 300 {
+                        completion(.success(()))
+                        print("Status Code:\(statusCode)")
+                        let UID: String = String(data: data, encoding: .utf8)!
+                        let originalString = "\"\(UID)\""
+                        let modifiedString = originalString.replacingOccurrences(of: "\"", with: "")
+                        UserDefaults.standard.set(modifiedString, forKey: "userID")
+                    } else {
+                        let error = NSError(domain: "API", code: statusCode, userInfo: nil)
+                        completion(.failure(error))
+                    }
+                }
+                catch{print("error")}
+            }
+            
+            
         }
         task.resume()
     }

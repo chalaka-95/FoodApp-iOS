@@ -89,7 +89,7 @@ extension SearchFoodResultsViewController: UICollectionViewDelegate, UICollectio
             switch result {
             case .success(let foods):
                 //self?.delegate?.searchFoodResultsViewControllerDidTapItem(FoodDetailsViewModel(foodId: foodID, foodName: food.name ?? "", imageURL: food.imageUrl ?? ""))
-                self?.delegate?.searchFoodResultsViewControllerDidTapItem(FoodDetailsViewModel(foodId: foodID, foodName: food.name ?? "", imageURL: food.imageUrl ?? "", cuisine: food.cuisine ?? "", description: food.description ?? "", calories: food.calories ?? "", carbohydrates: food.carbohydrates ?? "", fat: food.fat ?? "", protein: food.protein ?? "", sugar: food.sugar ?? "", ingredient: food.ingredient ?? "", imageUrl: food.imageUrl ?? ""))
+                self?.delegate?.searchFoodResultsViewControllerDidTapItem(FoodDetailsViewModel(foodId: foodID, foodName: food.name ?? "", cuisine: food.cuisine ?? "", description: food.description ?? "", calories: food.calories ?? "", carbohydrates: food.carbohydrates ?? "", fat: food.fat ?? "", protein: food.protein ?? "", sugar: food.sugar ?? "", ingredient: food.ingredient ?? "", imageUrl: food.imageUrl ?? ""))
                 
             case .failure(let error):
                 print(error.localizedDescription)

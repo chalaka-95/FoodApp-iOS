@@ -13,6 +13,8 @@ class FoodCollectionViewCell: UICollectionViewCell {
     private let foodImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
         return imageView
     }()
     

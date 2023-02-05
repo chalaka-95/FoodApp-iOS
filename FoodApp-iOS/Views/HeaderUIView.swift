@@ -17,10 +17,27 @@ class HeaderUIView: UIView {
         return imageView
     }()
     
+    private let Label: UILabel = {
+             let Label = UILabel()
+             Label.text = "Recipes & Nutrition"
+             Label.textAlignment = .center
+             Label.textColor = .black
+             Label.shadowColor = UIColor.black
+             Label.shadowOffset = CGSize(width: 2, height: 2)
+             Label.font = UIFont(name: "Hoefler", size: CGFloat(36))
+             
+             Label.font = .systemFont(ofSize: 36, weight: .bold)
+             Label.translatesAutoresizingMaskIntoConstraints = false
+            return Label
+         }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(homeImageView)
         addGradient()
+        homeImageView.addSubview(Label)
+                Label.centerXAnchor.constraint(equalTo: homeImageView.centerXAnchor).isActive = true
+                Label.centerYAnchor.constraint(equalTo: homeImageView.centerYAnchor, constant: -40).isActive = true
     }
     
     private func addGradient() {
@@ -37,6 +54,7 @@ class HeaderUIView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         homeImageView.frame = bounds
+        
     }
     
     required init?(coder: NSCoder) {
