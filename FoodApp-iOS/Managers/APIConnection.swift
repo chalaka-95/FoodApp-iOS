@@ -10,6 +10,7 @@ import Foundation
 struct Constants{
     static let baseURL = "https://coruscating-smakager-171246.netlify.app"
     static let foodTypeByCuisine = "/api/food/cuisine"
+    static let authLogin = "https://coruscating-smakager-171246.netlify.app/api/user/userdata"
 }
 
 enum APIError: Error {
@@ -198,7 +199,6 @@ class APIConnection {
 //        }
     
     func getSelectedFood(with query: String, completion: @escaping (Result<[FoodResponse], Error>) -> Void) {
-        
 
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
         guard let url = URL(string: "\(Constants.baseURL)/api/food/\(query)") else {return}
@@ -247,5 +247,81 @@ class APIConnection {
         }
 
         task.resume()
-    }    
+    }
+    
+    //Login
+    static func userLogin(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void ) {
+    
+        let url = URL(string: "\(Constants.authLogin)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let parameters = ["email": email, "password": password]
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+        
+        // Send the request
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let statusCode = (response as! HTTPURLResponse).statusCode
+                    if statusCode >= 200 && statusCode < 300 {
+                        completion(.success(()))
+                        print("status Code:\(statusCode)")
+                        let UID: String = String(data: data, encoding: .utf8)!
+                        let originalString = "\"\(UID)\""
+                        let modifiedString = originalString.replacingOccurrences(of: "\"", with: "")
+                        UserDefaults.standard.set(modifiedString, forKey: "userId")
+                        print(modifiedString)
+                    } else {
+                        let error = NSError(domain: "API", code: statusCode, userInfo: nil)
+                        completion(.failure(error))
+                    }
+                }
+                catch {print("error")}
+                return
+            }
+        }
+        task.resume()
+    }
+    
+    
+    //Add to favorite list
+    static func addToFavorite(userId: String, foodId:String, completion: @escaping (Result<Void, Error>) -> Void) {
+        // Build the API request
+        let url = URL(string: "\(Constants.baseURL)/api/favorite")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let parameters = ["userId": userId, "foodId": foodId]
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+        
+        // Send the request
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data {
+            do {
+                // Parse the response
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                let massage: String = String(data: data, encoding: .utf8)!
+                print("Status Code:\(statusCode)")
+                if statusCode >= 200 && statusCode < 300 {
+                    completion(.success(()))
+                } else {
+                    let error = NSError(domain: "API", code: statusCode, userInfo: nil)
+                    completion(.failure(error))
+                }
+            }
+            catch{print("error")}
+            }
+        }
+        task.resume()
+    }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class FoodDetailsViewController: UIViewController {
     
+    var foodID: String?
+    var userID: String?
     let foodImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -140,6 +142,7 @@ class FoodDetailsViewController: UIViewController {
         let icon = UIImage(named: "favIcon")?.withTintColor(.systemBackground)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(icon, for: .normal)
+        button.addTarget(self, action: #selector(addToFavoriteList), for: .touchUpInside)
         return button
     }()
 
@@ -250,8 +253,7 @@ class FoodDetailsViewController: UIViewController {
         let descriptionLabelConstraints = [
             descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: 20),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-            descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
         ]
 
         
@@ -272,9 +274,49 @@ class FoodDetailsViewController: UIViewController {
         NSLayoutConstraint.activate(descriptionLabelConstraints)
         
     }
+
+
+    @objc func addToFavoriteList() {
+        
+        let userId = UserDefaults.standard.string(forKey: "userId")
+        guard let unwrappedUserId = userId else {
+            return
+        }
+        guard let unwrappedFoodId = foodID else {
+            return
+        }
+        
+        if unwrappedUserId == nil {
+            let signInViewController = SignInViewController()
+            present(signInViewController, animated: true, completion: nil)
+        }
+        else
+        {
+            
+            APIConnection.addToFavorite(userId: unwrappedUserId, foodId: unwrappedFoodId) { result in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Success", message: "Successfully add to favorite list", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Error", message: "Already added", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
+                }
+            }
+        }
+    }
+    ///
     
     
     public func config(with model: FoodDetailsViewModel) {
+        foodID = model.foodId
         titleLabel.text = model.foodName
         cuisineLabel.text = "Cuisine Type: \(model.cuisine)"
         caloriesLabel.text = "Calories: \(model.calories)"
@@ -287,6 +329,7 @@ class FoodDetailsViewController: UIViewController {
         guard let url = URL(string: model.imageURL) else { return }
         foodImageView.sd_setImage(with: url, completed: nil)
     }
+    
     
 
 }

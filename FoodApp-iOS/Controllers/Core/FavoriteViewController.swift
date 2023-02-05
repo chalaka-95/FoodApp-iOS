@@ -12,6 +12,8 @@ class FavoriteViewController: UIViewController {
     
     private var foodData: [FoodResponse] = [FoodResponse]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     private let searchDataTable: UITableView = {
         let table = UITableView()
         table.register(FoodTableViewCell.self, forCellReuseIdentifier: FoodTableViewCell.identifier)
@@ -30,12 +32,29 @@ class FavoriteViewController: UIViewController {
         view.addSubview(searchDataTable)
         searchDataTable.delegate = self
         searchDataTable.dataSource = self
-        fetchSearchData(query: "63c4096c8dafc5f956bf1e92")
+        //fetchdata()
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchDataTable.frame = view.bounds
+        //fetchdata()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+        fetchdata()
+        }
+    
+    func fetchdata(){
+        let username = UserDefaults.standard.string(forKey: "userId")
+                
+        guard let unwrappedString = username else {
+            return
+        }
+        print(unwrappedString)
+        fetchSearchData(query: "\(unwrappedString)")
     }
     
     
@@ -66,14 +85,16 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
-    private func fetchSearchData(query: String){
+    func fetchSearchData(query: String){
         APIConnection.shared.searchFavFoodsByUserId(with: query) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let foods):
-                    self?.foodData = foods
-                    self?.searchDataTable.reloadData()
-                    print(result)
+                    DispatchQueue.main.async {
+                        self?.foodData = foods
+                        self?.searchDataTable.reloadData()
+                        print(result)
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                     //print(error)
