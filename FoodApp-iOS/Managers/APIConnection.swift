@@ -294,10 +294,6 @@ class APIConnection {
                     if statusCode >= 200 && statusCode < 300 {
                         completion(.success(()))
                         print("Status Code:\(statusCode)")
-                        let UID: String = String(data: data, encoding: .utf8)!
-                        let originalString = "\"\(UID)\""
-                        let modifiedString = originalString.replacingOccurrences(of: "\"", with: "")
-                        UserDefaults.standard.set(modifiedString, forKey: "userID")
                     } else {
                         let error = NSError(domain: "API", code: statusCode, userInfo: nil)
                         completion(.failure(error))

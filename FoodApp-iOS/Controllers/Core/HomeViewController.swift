@@ -39,6 +39,7 @@ class HomeViewController: UIViewController {
         let headerView = HeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height/2))
         homeFeedTable.tableHeaderView = headerView
         //snavigationController?.pushViewController(FoodDetailsViewController(), animated: true)
+        ConfigureNavBar()
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,9 +49,8 @@ class HomeViewController: UIViewController {
     
     private func ConfigureNavBar(){
         
-        navigationItem.leftBarButtonItem = nil
-        navigationItem.rightBarButtonItem = nil
-
+        let leftButton = UIBarButtonItem(title: "Chala Food Recipes & Nutrition", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = leftButton
     }
     
 }
@@ -150,7 +150,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
-        header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        header.textLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .black
         header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
@@ -169,7 +169,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
 }
-
+//navi
 extension HomeViewController: CollectionViewTableViewCellDelegate {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: FoodDetailsViewModel) {
         DispatchQueue.main.async { [weak self] in

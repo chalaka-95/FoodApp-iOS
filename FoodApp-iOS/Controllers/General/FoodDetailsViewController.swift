@@ -12,6 +12,7 @@ class FoodDetailsViewController: UIViewController {
     
     var foodID: String?
     var userID: String?
+    let backButton = UIButton()
     let foodImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +27,19 @@ class FoodDetailsViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
+    
+    func configureBackButton(){
+        view.addSubview(backButton)
+        backButton.setTitle("Logout", for: .normal)
+        backButton.layer.cornerRadius = 15
+        backButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        backButton.backgroundColor = UIColor(red: 102/255, green: 0/255, blue: 204/255, alpha: 1)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        backButton.addTarget(self, action: #selector(goToBack), for: .touchUpInside)
+    }
+
     
     let cuisinTitleLabel: UILabel = {
         let label = UILabel()
@@ -145,11 +159,132 @@ class FoodDetailsViewController: UIViewController {
         button.addTarget(self, action: #selector(addToFavoriteList), for: .touchUpInside)
         return button
     }()
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    let scrollViewContainer: UIStackView = {
+        let view = UIStackView()
+        
+        view.axis = .vertical
+        view.spacing = 14
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        setupUI()
+        //setupUI()
+        setupUIScrollBar()
+        //uisetup()
+        //configureBackButton()
+        print(self.navigationController)
+        
+    }
+    
+    @objc func goToBack() {
+       let mainController = MainTabBarViewController()
+        UIView.transition(with: UIApplication.shared.windows.first!, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+              UIApplication.shared.windows.first?.rootViewController = mainController
+          }, completion: nil)
+    }
+    
+    
+    func uisetup(){
+        
+        view.addSubview(foodImageView)
+        view.addSubview(favouriteButton)
+        view.addSubview(titleLabel)
+        view.addSubview(scrollView)
+        
+        let imageViewConstraints = [
+            foodImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            foodImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            foodImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            foodImageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            foodImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/3)
+        ]
+        let favoriteButtonConstraints = [
+            favouriteButton.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20),
+            favouriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+
+            favouriteButton.widthAnchor.constraint(equalToConstant: 30),
+            favouriteButton.heightAnchor.constraint(equalToConstant: 30)
+        ]
+        
+        let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
+        ]
+        let scrollViewConstraints = [
+            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        ]
+        NSLayoutConstraint.activate(imageViewConstraints)
+        NSLayoutConstraint.activate(favoriteButtonConstraints)
+        NSLayoutConstraint.activate(titleLabelConstraints)
+        NSLayoutConstraint.activate(scrollViewConstraints)
+        
+        setupUIScrollBar()
+        
+    }
+    
+    func setupUIScrollBar(){
+        
+        view.addSubview(foodImageView)
+        view.addSubview(favouriteButton)
+        view.addSubview(titleLabel)
+        view.addSubview(scrollView)
+        scrollView.addSubview(scrollViewContainer)
+        scrollViewContainer.addArrangedSubview(cuisinTitleLabel)
+        scrollViewContainer.addArrangedSubview(cuisineLabel)
+        scrollViewContainer.addArrangedSubview(nutritionLabel)
+        scrollViewContainer.addArrangedSubview(caloriesLabel)
+        scrollViewContainer.addArrangedSubview(carbohydratesLabel)
+        scrollViewContainer.addArrangedSubview(proteinLabel)
+        scrollViewContainer.addArrangedSubview(sugarLabel)
+        scrollViewContainer.addArrangedSubview(fatLabel)
+        scrollViewContainer.addArrangedSubview(ingrediantTitleLabel)
+        scrollViewContainer.addArrangedSubview(ingrediantLabel)
+        scrollViewContainer.addArrangedSubview(descriptionTitleLabel)
+        scrollViewContainer.addArrangedSubview(descriptionLabel)
+        foodImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        foodImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        foodImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        foodImageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        foodImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/3).isActive = true
+    
+        favouriteButton.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20).isActive = true
+        favouriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        
+        //favouriteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        //favouriteButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+        favouriteButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        favouriteButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+   
+        titleLabel.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 20).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+    
+        scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        //scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        
+        scrollViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        scrollViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
 
     func setupUI(){
@@ -282,12 +417,11 @@ class FoodDetailsViewController: UIViewController {
     @objc func addToFavoriteList() {
         
         let userId = UserDefaults.standard.string(forKey: "userId")
-        guard let unwrappedUserId = userId else {
-            return
-        }
+        let unwrappedUserId = userId
         guard let unwrappedFoodId = foodID else {
             return
         }
+        print("unwrappedFoodId")
         
         if unwrappedUserId == nil {
             let signInViewController = SignInViewController()
@@ -296,7 +430,7 @@ class FoodDetailsViewController: UIViewController {
         else
         {
             
-            APIConnection.addToFavorite(userId: unwrappedUserId, foodId: unwrappedFoodId) { result in
+            APIConnection.addToFavorite(userId: (unwrappedUserId)!, foodId: unwrappedFoodId) { result in
                 switch result {
                 case .success:
                     DispatchQueue.main.async {

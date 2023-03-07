@@ -106,7 +106,7 @@ class SignUpViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
         button.setTitleColor(.white, for: .normal)
         button.frame = CGRect(x: 15, y: -50, width: 300, height: 500)
-        button.backgroundColor = UIColor(red: 233/255, green: 232/255, blue: 232/255, alpha: 1)
+        button.backgroundColor = UIColor(red: 230/255, green: 232/255, blue: 232/255, alpha: 1)
         return button
     }()
     
@@ -131,7 +131,7 @@ class SignUpViewController: UIViewController {
        override func viewDidLoad() {
            super.viewDidLoad()
            self.view.backgroundColor = .systemBackground
-           _ = UserDefaults.standard.string(forKey: "userID")
+           //_ = UserDefaults.standard.string(forKey: "userId")
            self.view.backgroundColor = .white
            let apperence = UINavigationBarAppearance()
            apperence.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -139,7 +139,7 @@ class SignUpViewController: UIViewController {
            self.navigationController?.navigationBar.prefersLargeTitles = true
            signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
            loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-           skipButton.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpOutside)
+           skipButton.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
            setupUI()
        }
     
@@ -213,9 +213,9 @@ class SignUpViewController: UIViewController {
                 switch result {
                 case .success:
                     DispatchQueue.main.async {
-                        let mainTabBarViewController = MainTabBarViewController()
+                        let loginViewController = SignInViewController()
                         UIView.transition(with: UIApplication.shared.windows.first!, duration: 0.5, options: .transitionFlipFromLeft, animations: {
-                            UIApplication.shared.windows.first?.rootViewController = mainTabBarViewController
+                            UIApplication.shared.windows.first?.rootViewController = loginViewController
                         }, completion: nil)
                     }
                 case .failure(let error):

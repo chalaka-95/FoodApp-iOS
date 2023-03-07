@@ -31,7 +31,23 @@ let data = [
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        configureUI()
+        auth()
+        
+        
+    }
+    
+    func auth(){
+        let userId = UserDefaults.standard.string(forKey: "userId")
+        let unwrappedUserId = userId
+        
+        if unwrappedUserId == nil {
+            let signInViewController = SignInViewController()
+            present(signInViewController, animated: true, completion: nil)
+        }
+        else{
+            configureUI()
+        }
+        
     }
     
     func configureUI(){
@@ -67,7 +83,7 @@ let data = [
     
     func configureNameLable(){
         viewHolder.insertArrangedSubview(userNameLable, at: 1)
-        userNameLable.text = "Kamal"
+        userNameLable.text = "John"
         userNameLable.textAlignment = .left
         userNameLable.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         userNameLable.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +98,7 @@ let data = [
         logoutButton.backgroundColor = UIColor(red: 102/255, green: 0/255, blue: 204/255, alpha: 1)
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        logoutButton.addTarget(self, action: #selector(goToNextPage), for: .touchUpInside)
+        logoutButton.addTarget(self, action: #selector(goToSignUp), for: .touchUpInside)
     }
     
     func configureTableView(){
@@ -102,19 +118,12 @@ let data = [
         ])
     }
     
-//    func configuerLogoutButton(){
-//        viewHolder.insertArrangedSubview(logoutButton, at: 3)
-//        logoutButton.text = "UI UX Designer"
-//        logoutButton.textAlignment = .left
-//        logoutButton.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-//        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-//    }
-    
-    @objc func goToNextPage() {
+    @objc func goToSignUp() {
        let signUpViewController = SignUpViewController()
         UIView.transition(with: UIApplication.shared.windows.first!, duration: 0.5, options: .transitionFlipFromLeft, animations: {
               UIApplication.shared.windows.first?.rootViewController = signUpViewController
           }, completion: nil)
+        UserDefaults.standard.set( nil, forKey: "userId")
     }
     
 }

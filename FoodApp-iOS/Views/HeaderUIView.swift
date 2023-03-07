@@ -17,27 +17,32 @@ class HeaderUIView: UIView {
         return imageView
     }()
     
-    private let Label: UILabel = {
-             let Label = UILabel()
-             Label.text = "Recipes & Nutrition"
-             Label.textAlignment = .center
-             Label.textColor = .black
-             Label.shadowColor = UIColor.black
-             Label.shadowOffset = CGSize(width: 2, height: 2)
-             Label.font = UIFont(name: "Hoefler", size: CGFloat(36))
-             
-             Label.font = .systemFont(ofSize: 36, weight: .bold)
-             Label.translatesAutoresizingMaskIntoConstraints = false
-            return Label
-         }()
+    private let titleLable: UILabel = {
+        let label = UILabel()
+        label.text = ("Recipes & Nutrition")
+        label.textAlignment = .center
+        label.textColor = .systemBackground
+        label.shadowColor = UIColor.blue
+        label.shadowOffset = CGSize(width: 2, height: 2)
+        label.font = UIFont(name: "Hoefler", size: CGFloat(36))
+        
+        label.font = .systemFont(ofSize: 36, weight: .bold)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(homeImageView)
-        addGradient()
-        homeImageView.addSubview(Label)
-                Label.centerXAnchor.constraint(equalTo: homeImageView.centerXAnchor).isActive = true
-                Label.centerYAnchor.constraint(equalTo: homeImageView.centerYAnchor, constant: -40).isActive = true
+        //addGradient()
+        homeImageView.addSubview(titleLable)
+        titleLable.leadingAnchor.constraint(equalTo: homeImageView.leadingAnchor, constant: 10).isActive = true
+        //titleLable.trailingAnchor.constraint(equalTo: homeImageView.trailingAnchor, constant: -20).isActive = true
+        titleLable.bottomAnchor.constraint(equalTo: homeImageView.bottomAnchor, constant: -20).isActive = true
+        //titleLable.centerXAnchor.constraint(equalTo: homeImageView.centerXAnchor).isActive = true
+        //titleLable.centerYAnchor.constraint(equalTo: homeImageView.centerYAnchor, constant: -40).isActive = true
     }
     
     private func addGradient() {

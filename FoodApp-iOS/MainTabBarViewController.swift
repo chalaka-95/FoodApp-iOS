@@ -12,6 +12,9 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MainTabBar is Running....")
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.isTranslucent = false
+
         let hvc = UINavigationController(rootViewController: HomeViewController())
         let svc = UINavigationController(rootViewController: SearchViewController())
         let fvc = UINavigationController(rootViewController: FavoriteViewController())
